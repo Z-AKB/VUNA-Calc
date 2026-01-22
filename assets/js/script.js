@@ -212,3 +212,30 @@ function updateStepsDisplay() {
 
   stepsDiv.innerText = steps.join("\n");
 }
+
+function square() {
+    const result = document.getElementById("result");
+    if (!result.value) return;
+    const value = Number(result.value);
+    if (isNaN(value)) {
+      alert("Invalid input");
+      return;
+    }
+    result.value = value * value;
+  }
+  
+  function squareRoot() {
+    const result = document.getElementById("result");
+    if (!result.value) return;
+    const value = Number(result.value);
+    if (isNaN(value)) {
+      alert("Invalid input");
+      return;
+    }
+    if (value < 0) {
+      alert("Cannot take square root of a negative number");
+      return;
+    }
+    result.value = Math.sqrt(value);
+  }
+  

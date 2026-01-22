@@ -28,10 +28,7 @@
 
 
 
-                <function>
-                  <h6>Steps</h6>
-                  <div id="steps" class="steps-container"></div>
-                </function>
+                
 
 
 
@@ -70,18 +67,34 @@
 
                 <div class="btn-grid">
                   <!-- Row 1 -->
+                  <button class="btn btn-action" onclick="clearResult()">
+                    AC
+                  </button>
+                  <button class="btn btn-light" onclick="backspace()">
+                    ←
+                  </button>
                   <button class="btn btn-light" onclick="bracketToResult('(')">
                     (
                   </button>
                   <button class="btn btn-light" onclick="bracketToResult(')')">
                     )
                   </button>
-                  <button class="btn btn-light" onclick="backspace()">←</button>
-                  <button class="btn btn-action" onclick="clearResult()">
-                    AC
+
+                  <!-- Row 2 Now With Square & Squared Root -->
+                  <button class="btn btn-operator" onclick="square()">
+                    x²
+                  </button>
+                  <button class="btn btn-operator" onclick="squareRoot()">
+                    √
+                  </button>
+                  <button class="btn btn-operator" onclick="operatorToResult('/')">
+                    ÷
+                  </button>
+                  <button class="btn btn-operator" onclick="operatorToResult('*')">
+                    ×
                   </button>
 
-                  <!-- Row 2 -->
+                  <!-- Row 3 -->
                   <button class="btn btn-light" onclick="appendToResult(7)">
                     7
                   </button>
@@ -98,7 +111,7 @@
                     ÷
                   </button>
 
-                  <!-- Row 3 -->
+                  <!-- Row 4 -->
                   <button class="btn btn-light" onclick="appendToResult(4)">
                     4
                   </button>
@@ -115,7 +128,7 @@
                     ×
                   </button>
 
-                  <!-- Row 4 -->
+                  <!-- Row 5 -->
                   <button class="btn btn-light" onclick="appendToResult(1)">
                     1
                   </button>
@@ -132,7 +145,7 @@
                     +
                   </button>
 
-                  <!-- Row 5 -->
+                  <!-- Row 6 -->
                   <button class="btn btn-light" onclick="appendToResult('.')">
                     .
                   </button>
@@ -187,6 +200,32 @@
       </div>
     </div>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js">
+    function square() {
+      const result = document.getElementById("result");
+      if (!result.value) return;
+      const value = Number(result.value);
+      if (isNaN(value)) {
+        alert("Invalid input");
+        return;
+      }
+      result.value = value * value;
+    }
+    function squareRoot() {
+      const result = document.getElementById("result");
+      if (!result.value) return;
+      const value = Number(result.value);
+      if (isNaN(value)) {
+        alert("Invalid input");
+        return;
+      }
+
+      if (value < 0) {
+        alert("Cannot take square root of a negative number");
+        return;
+      }
+      result.value = Math.sqrt(value);
+    }
+    </script>
   </body>
 </html>
